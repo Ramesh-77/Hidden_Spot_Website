@@ -1,0 +1,84 @@
+/* menu */
+.dropdown .dropdown-menu {
+  display: none;
+  border: 0;
+  outline: none;
+}
+/* cafe */
+.dropdown:hover > .dropdown-menu,
+.dropend:hover > .dropdown-menu {
+  display: block;
+  margin-top: 0.125em;
+}
+.dropend:hover > .dropdown-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  /* margin-left: 0.05em; */
+}
+/* catering */
+.catering-dropdown:hover .dropdown-menu {
+  position: absolute;
+  top: 30px;
+  left: 100%;
+  /* margin-left: 1em; */
+}
+/* func enquiry form */
+.function-enquiry-form-btn:hover {
+  color: #fff;
+  background-color: #e09900;
+  font-weight: bold;
+  border: 0;
+  outline: none;
+}
+/* search-form */
+.search-form {
+  width: 40%;
+  position: relative;
+}
+.search-icon-box {
+  background-color: #e09900;
+  position: relative;
+  width: 40px;
+  top: 0;
+  right: 6%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  cursor: pointer;
+}
+/* search icon */
+.search-icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+/* search field */
+.search-field {
+  border: 1px solid #e09900;
+}
+
+/* cart icon */
+.cart-icon {
+  position: relative;
+}
+/* cart box */
+.cart-number-box {
+  width: 10px;
+  height: 10px;
+  background: #e09900;
+  border-radius: 50%;
+  padding: 15px;
+  position: absolute;
+  bottom: 1px;
+  left: 20px;
+}
+/* cart number */
+.cart-number {
+  position: absolute;
+  left: 35%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}

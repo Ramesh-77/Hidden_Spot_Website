@@ -1,0 +1,65 @@
+/* carousal div */
+.banner {
+  height: 83vh;
+  width: 100%;
+}
+.carousel-caption h4 {
+  color: #000;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+.carousel-caption p {
+  color: #000;
+  font-size: 25px;
+}
+/* our story */
+
+.story-box {
+  border: 1px solid #f4d03f;
+  font-weight: bold;
+  padding: 5px 0;
+  border-radius: 10px;
+}
+.story-box h1 {
+  color: #f3bc19;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+/* hidden spot history */
+.hidden-spot-history h1 {
+  color: #f3bc19;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: italic;
+}
+.hidden-spot-history p {
+  line-height: 30px;
+}
+
+/* service */
+.cafe > p,
+.mealPrep > p,
+.catering > p {
+  text-align: justify;
+}
+.service-heading h1 {
+  color: #f3bc19;
+}
+
+/* side footer banner */
+
+.location-box {
+  height: 70px;
+  width: 70px;
+  background: #f3bc19;
+  padding: 10px;
+  border-radius: 50%;
+  position: relative;
+  margin: auto;
+}
+.location-box .location-icon {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+}
