@@ -1,0 +1,64 @@
+.login-part-one {
+  padding: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.card-header h1 {
+  color: #f3bc19;
+  font-weight: bold;
+  padding-top: 10px;
+}
+
+.facebook-login,
+.gmail-login {
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  background: transparent;
+  padding: 10px 14px;
+  color: #000000;
+}
+.gmail-login.g-plus {
+  padding: 10px;
+}
+.email-input-icon,
+.password-input-icon {
+  position: relative;
+}
+.email-icon {
+  position: absolute;
+  left: 9rem;
+  top: 10px;
+}
+.password-icon {
+  position: absolute;
+  left: 9rem;
+  top: 10px;
+}
+input[type="text"],
+input[type="password"] {
+  width: 60%;
+  padding: 7px 7px 7px 40px;
+  border-radius: 3px;
+  border: transparent;
+  background: #eaeaea;
+}
+.login-btn,
+.login-btn:hover {
+  background: #f3bc19;
+  border-radius: 30px;
+  margin-top: 20px;
+  color: #fff;
+  padding: 5px 30px;
+}
+.login-part-two {
+  background: #f3bc19;
+  padding: 9.31rem 0;
+}
+.register-btn {
+  background: transparent;
+  border: 1px solid #fff;
+  padding: 5px 30px;
+  color: #fff;
+  border-radius: 30px;
+}
