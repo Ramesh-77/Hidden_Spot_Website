@@ -2,6 +2,8 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Login.css";
 const Login = () => {
+  
+
   return (
     <>
       <section id="login">
@@ -61,14 +63,17 @@ const Login = () => {
                 </form>
               </div>
               {/* card footer */}
-              <div className="card-footer text-center my-5">
-                <NavLink href="/" className="text-black">
+              <div className="card-footer  my-5 d-flex flex-column text-center justify-content-center align-items-center">
+                <NavLink to={`/`} className="text-muted">
                   Forgot your password?
                 </NavLink>
                 <br />
-                <NavLink to={`/`} className="btn login-btn btn-sm">
+                <a
+                  href="/user/login"
+                  className="text-decoration-none login-btn"
+                >
                   SIGN IN
-                </NavLink>
+                </a>
               </div>
             </div>
             {/* second-part */}
@@ -78,7 +83,10 @@ const Login = () => {
                 <p>
                   Enter your personal details <br /> and start journey with us
                 </p>
-                <NavLink className="btn btn-sm register-btn mx-auto">
+                <NavLink
+                  to={`/user/register`}
+                  className="text-decoration-none register-btn mx-auto"
+                >
                   SIGN UP
                 </NavLink>
               </div>

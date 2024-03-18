@@ -1,17 +1,17 @@
-.login-part-one {
-  padding: 0;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-}
-.login-part-two {
+.register-part-one {
   padding: 0;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.register-part-two {
+  /* padding: 0; */
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
   box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 .card-header h1 {
@@ -32,7 +32,9 @@
   padding: 10px;
 }
 .email-input-icon,
-.password-input-icon {
+.password-input-icon,
+.fullName-input-icon,
+.phone-input-icon {
   position: relative;
 }
 .email-icon {
@@ -41,6 +43,16 @@
   top: 10px;
 }
 .password-icon {
+  position: absolute;
+  left: 9rem;
+  top: 10px;
+}
+.fullName-icon {
+  position: absolute;
+  left: 9rem;
+  top: 10px;
+}
+.phone-icon {
   position: absolute;
   left: 9rem;
   top: 10px;
@@ -60,9 +72,9 @@ input[type="password"] {
   color: #fff;
   padding: 5px 30px;
 }
-.login-part-two {
+.register-part-two {
   background: #f3bc19;
-  padding: 155px 0;
+  padding: 175px 0;
 }
 .register-btn {
   background: transparent;
