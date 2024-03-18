@@ -56,6 +56,7 @@ const Login = () => {
                     <input
                       type="password"
                       placeholder="Password"
+                      autoComplete="off"
                       //   name="password"
                       //   value="password"
                     />

@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./Register.css"
+import "./Register.css";
 const Register = () => {
   return (
     <>
@@ -79,13 +79,15 @@ const Register = () => {
                     <input
                       type="password"
                       placeholder="Password"
+                      autoComplete="off"
+
                       //   name="password"
                       //   value="password"
                     />
                   </div>
                   {/* phone or contact */}
                   <div className="phone-input-icon text-center">
-                  <i className="fa-solid fa-phone phone-icon"></i>
+                    <i className="fa-solid fa-phone phone-icon"></i>
                     <input
                       type="text"
                       placeholder="Phone"

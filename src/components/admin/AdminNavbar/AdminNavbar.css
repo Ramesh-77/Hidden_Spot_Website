@@ -1,0 +1,27 @@
+.admin-navbar{
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+
+}
+
+/* search input */
+.search-input-icon {
+  position: relative;
+}
+.search-input-icon .search-input{
+    border-radius: 20px;
+    padding-left: 20px;
+}
+.search-input-icon .search-icon {
+  position: absolute;
+  top: 1.2rem;
+  left: 29rem;
+}
+
+.welcome-hidden-spot{
+    font-size: 12px;
+    color: #ababab;
+}
+.dashboard-icon{
+    color: #f3bc19;
+
+}
