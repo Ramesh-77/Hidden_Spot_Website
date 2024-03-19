@@ -1,7 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Register.css";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../../features/slices/UserRegister/userRegisterSlice";
 const Register = () => {
+  // getting user input value
+  const [users, setUsers] = useState({
+    fullName: "",
+    email: "",
+    password: "",
+    phone: "",
+  });
+  // import dispatch to handle the action
+  const dispatch = useDispatch();
+  // setting the user input value into respective variable
+  const getUserData = (e) => {
+    setUsers({ ...users, [e.target.name]: e.target.value });
+    // console.log(users);
+  };
+  // submit user register form
+
+  const handleUserRegisterForm = (e) => {
+    e.preventDefault(); //not reload the form
+    console.log("click register");
+    dispatch(registerUser(users));
+    console.log("user", users);
+    // setUsers("")
+  };
+
   return (
     <>
       <section id="login">
@@ -50,9 +76,10 @@ const Register = () => {
               {/* card body */}
               <div className="card-body user-register-card-body">
                 <form
-                  action="/"
-                  method="POST"
+                  // action="/"
+                  // method="POST"
                   className="user-register-form d-flex flex-column gap-3 mt-2"
+                  onSubmit={handleUserRegisterForm}
                 >
                   {/* full Name */}
                   <div className="fullName-input-icon text-center">
@@ -61,6 +88,8 @@ const Register = () => {
                       type="text"
                       placeholder="Full Name"
                       autoComplete="off"
+                      name="fullName"
+                      onChange={getUserData}
                     />
                   </div>
                   {/* username or email */}
@@ -69,7 +98,9 @@ const Register = () => {
                     <input
                       type="text"
                       placeholder="Email"
-                      //   name="email"
+                      name="email"
+                      onChange={getUserData}
+
                       //   value="email"
                     />
                   </div>
@@ -80,8 +111,9 @@ const Register = () => {
                       type="password"
                       placeholder="Password"
                       autoComplete="off"
+                      name="password"
+                      onChange={getUserData}
 
-                      //   name="password"
                       //   value="password"
                     />
                   </div>
@@ -91,20 +123,23 @@ const Register = () => {
                     <input
                       type="text"
                       placeholder="Phone"
-                      //   name="password"
+                      name="phone"
+                      onChange={getUserData}
+
                       //   value="password"
                     />
                   </div>
+                  {/* card footer */}
+                  <div className="card-footer my-5 text-center">
+                    <button
+                      // href="/user/register"
+                      type="submit"
+                      className="btn text-decoration-none login-btn py-2"
+                    >
+                      SIGN UP
+                    </button>
+                  </div>
                 </form>
-              </div>
-              {/* card footer */}
-              <div className="card-footer my-5 text-center">
-                <a
-                  href="/user/register"
-                  className="text-decoration-none login-btn py-2"
-                >
-                  SIGN UP
-                </a>
               </div>
             </div>
           </div>

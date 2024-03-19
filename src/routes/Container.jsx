@@ -5,6 +5,7 @@ import Register from "../components/UserAccount/Register/Register";
 import Login from "../components/UserAccount/Login/Login";
 import AdminDashboard from "../components/admin/AdminDashboard/AdminDashboard";
 import UserDashboard from "../components/UserAccount/UserDashboard/UserDashboard";
+import UserEmailVerify from "../components/UserAccount/EmailVerify/UserEmailVerify";
 const Container = () => {
   return (
     <>
@@ -16,6 +17,7 @@ const Container = () => {
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="dashboard" element={<UserDashboard />} />
+          <Route path="register/:id/:token" element={<UserEmailVerify />} />
         </Route>
         {/* admin */}
         <Route exact path="admin">
