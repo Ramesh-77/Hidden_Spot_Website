@@ -6,9 +6,14 @@ import Login from "../components/UserAccount/Login/Login";
 import AdminDashboard from "../components/admin/AdminDashboard/AdminDashboard";
 import UserDashboard from "../components/UserAccount/UserDashboard/UserDashboard";
 import UserEmailVerify from "../components/UserAccount/EmailVerify/UserEmailVerify";
+// react-toastify
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Container = () => {
   return (
     <>
+      <ToastContainer />
+
       <Routes>
         {/* home */}
         <Route exact path="/" element={<Home />} />

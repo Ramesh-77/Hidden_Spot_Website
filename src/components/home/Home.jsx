@@ -12,12 +12,15 @@ const Home = () => {
     "Discover our all-time favourites high protein meals. Nothing beats a meal that’s cooked and delivered fresh. Simply heat, eat and repeat!";
   const cateringContext =
     "Hidden Spot catering delivers the fresh and delicious catering options to Sydney’s offices, function venues, and residential homes. So whether you have a private celebration or a corporate event we can deliver fresh, delicious catering on time, every time.";
+
+ 
   return (
     <>
       {/* for home */}
       <section id="home">
         {/* carousel banner */}
         <Banner />
+        
         {/* story */}
         <HiddenSpotStory />
         {/* service */}
