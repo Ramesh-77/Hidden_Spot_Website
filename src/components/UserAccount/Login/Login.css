@@ -1,3 +1,6 @@
+#login{
+  margin-top: 10rem;
+}
 .login-part-one {
   padding: 0;
   border-top-left-radius: 10px;
@@ -70,4 +73,7 @@ input[type="password"] {
   padding: 5px 30px;
   color: #fff;
   border-radius: 30px;
+}
+::placeholder{
+  color: #ababab;
 }

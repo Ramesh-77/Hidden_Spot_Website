@@ -1,7 +1,7 @@
 const Banner = () => {
   return (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid" style={{marginTop: "5.5rem"}}>
         {/* for banner */}
         <div className="row">
           {/* banner */}

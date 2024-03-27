@@ -1,46 +1,67 @@
+// import axios from "axios";
+import React, { useRef, useState } from "react";
+import "./UserEmailVerify.css"
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { successToast } from "../../../utils/Toast/successToast";
 const UserEmailVerify = () => {
-  const [validURL, setValidURL] = useState(false);
+
+  const [otp, setOTP] = useState({
+    otp: ""
+  })
+
   const param = useParams();
-  console.log(param);
 
-  // function to handle api
-  const emailVerify = async () => {
-    const response = await axios.get(
-      `http://localhost:8000/api/v1/users/register/${param?.id}/${param?.token}`
-    );
-    try {
-      const result = await response?.data;
-      if (result) {
-        setValidURL(true);
-      }
-      return;
-    } catch (error) {
-      console.log(error);
+  const formRef = useRef(null)
+
+  const navigate = useNavigate()
+
+  const handleChange = (e) => {
+    setOTP({ ...otp, [e.target.name]: e.target.value })
+  }
+
+  async function handleOTP() {
+    const response = await axios.post(`http://localhost:8000/api/v1/users/register/${param.id}`, otp)
+    if (response?.data?.statusCode === 200 && response?.data?.success === true) {
+      successToast(response?.data?.message)
+      setTimeout(() => {
+        formRef.current.reset()
+      }, 2000);
     }
-  };
+  }
 
-  // using use effect to mount the component
-  useEffect(() => {
-    emailVerify();
-  }, [param]);
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    handleOTP()
+    navigate("/user/login")
+
+  }
+  // console.log(otp)
   return (
     <>
-      {validURL && validURL ? (
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-12">This is email verify page</div>
+      <section id="userEmailVerify">
+
+        <div className="container-fluid my-5">
+          <div className="row my-5 justify-content-center align-items-center">
+            <div className="col-md-5">
+              <div className="card p-3">
+                <h4 className="text-center fw-bold" >Welcome to Hidden Spot</h4>
+                <h5 className="text-center fw-bold" >Activate your account</h5>
+                <form ref={formRef} onSubmit={handleSubmit} >
+                  <div className="mb-3">
+                    <input type="text" className="form-control px-3 w-100"
+                      id="otp" name="otp" placeholder="Enter OTP"
+                      onChange={handleChange}
+                    />
+                  </div>
+                  <button type="submit" className="btn btn-primary w-100">Submit</button>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
-      ) : (
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-md-12">Email not verified</div>
-          </div>
-        </div>
-      )}
+      </section>
+
     </>
   );
 };

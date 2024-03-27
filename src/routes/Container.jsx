@@ -22,7 +22,7 @@ const Container = () => {
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
           <Route path="dashboard" element={<UserDashboard />} />
-          <Route path="register/:id/:token" element={<UserEmailVerify />} />
+          <Route path="register/:id" element={<UserEmailVerify />} />
         </Route>
         {/* admin */}
         <Route exact path="admin">

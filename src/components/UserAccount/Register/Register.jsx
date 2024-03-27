@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Register.css";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../../features/slices/UserRegister/userRegisterSlice";
+import { successToast } from "../../../utils/Toast/successToast";
+import { errorToast } from "../../../utils/Toast/errorToast";
+
 const Register = () => {
   // getting user input value
   const [users, setUsers] = useState({
@@ -13,24 +16,37 @@ const Register = () => {
   });
   // import dispatch to handle the action
   const dispatch = useDispatch();
+  const formRef = useRef(null)
   // setting the user input value into respective variable
   const getUserData = (e) => {
+
     setUsers({ ...users, [e.target.name]: e.target.value });
     // console.log(users);
   };
   // submit user register form
 
+
   const handleUserRegisterForm = (e) => {
     e.preventDefault(); //not reload the form
-    console.log("click register");
-    dispatch(registerUser(users));
-    console.log("user", users);
-    // setUsers("")
+    if (!fullName || !email || !password || !phone) {
+      errorToast("All fields are required")
+      return;
+    }
+    dispatch(registerUser(users))
+
+    successToast('Account Verification code is sent to your email....')
+    setTimeout(() => {
+      formRef.current.reset()
+    }, 2000);
+
+    // reset form after submit the form data
+
+
   };
 
   return (
     <>
-      <section id="login">
+      <section id="register">
         <div className="container my-5">
           <div className="row justify-content-center align-items-center">
             {/* first-part */}
@@ -75,7 +91,7 @@ const Register = () => {
               </div>
               {/* card body */}
               <div className="card-body user-register-card-body">
-                <form
+                <form ref={formRef}
                   // action="/"
                   // method="POST"
                   className="user-register-form d-flex flex-column gap-3 mt-2"
@@ -90,6 +106,7 @@ const Register = () => {
                       autoComplete="off"
                       name="fullName"
                       onChange={getUserData}
+                      id="fullName"
                     />
                   </div>
                   {/* username or email */}
@@ -97,11 +114,11 @@ const Register = () => {
                     <i className="fa-solid fa-envelope email-icon"></i>
                     <input
                       type="text"
-                      placeholder="Email"
+                      placeholder="example@gmail.com"
                       name="email"
                       onChange={getUserData}
 
-                      //   value="email"
+                    //   value="email"
                     />
                   </div>
                   {/* username or email */}
@@ -114,7 +131,7 @@ const Register = () => {
                       name="password"
                       onChange={getUserData}
 
-                      //   value="password"
+                    //   value="password"
                     />
                   </div>
                   {/* phone or contact */}
@@ -122,11 +139,13 @@ const Register = () => {
                     <i className="fa-solid fa-phone phone-icon"></i>
                     <input
                       type="text"
-                      placeholder="Phone"
+                      placeholder="0404343768"
                       name="phone"
+                      minLength={10}
+                      maxLength={10}
                       onChange={getUserData}
 
-                      //   value="password"
+                    //   value="password"
                     />
                   </div>
                   {/* card footer */}

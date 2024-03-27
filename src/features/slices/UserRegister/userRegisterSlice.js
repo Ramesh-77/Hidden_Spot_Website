@@ -10,17 +10,20 @@ export const registerUser = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     const response = await axios.post(registerURL, data);
     // console log
-    console.log("asyncthunk response", response);
+    // console.log("asyncthunk response", response);
 
     // resolving in tryc
     try {
       const result = await response?.data;
+      
       return result;
     } catch (error) {
       return rejectWithValue(error);
     }
   }
 );
+
+
 
 // initial state of the user slice
 const initialState = {
@@ -51,7 +54,7 @@ export const userRegisterSlice = createSlice({
     //   state.users = action.payload;
     // },
 
-    // handle pending
+    // handle pending - register
     builder
       .addCase(registerUser.pending, (state) => {
         state.loading = true;
@@ -66,6 +69,7 @@ export const userRegisterSlice = createSlice({
         state.loading = false;
         state.users = action.payload;
       });
+
   },
 });
 
