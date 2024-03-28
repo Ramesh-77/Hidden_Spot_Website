@@ -1,6 +1,14 @@
 import React from "react";
 import "./AdminNavbar.css";
+import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
 const AdminNavbar = () => {
+  let token = Cookies.get("accessToken")
+  let decodeToken;
+  if(token){
+    decodeToken= jwtDecode(token)
+    
+  }
   return (
     <>
       {/* admin navbar */}
@@ -33,14 +41,14 @@ const AdminNavbar = () => {
           <div className="col-md-3">
             <div className="profile-name-role d-flex flex-row justify-content-end align-items-center gap-3">
               <img
-                src="https://www.svgrepo.com/show/384674/account-avatar-profile-user-11.svg"
+                src={decodeToken?.avatar}
                 alt="profile-pic"
                 className="img-fluid"
                 width={50}
               />
               <div className="name-role">
-                <span className="fw-bold">Ramesh Pathak</span> <br />
-                <span>Admin</span>
+                <span className="fw-bold">{decodeToken?.fullName}</span> <br />
+                <span>{decodeToken?.role}</span>
               </div>
             </div>
           </div>

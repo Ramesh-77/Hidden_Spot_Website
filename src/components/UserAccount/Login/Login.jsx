@@ -1,7 +1,50 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./Login.css";
+import axios from "axios";
+// import { successToast } from "../../../utils/Toast/successToast";
+import Cookies from "js-cookie";
 const Login = () => {
+  const [users, setUsers] = useState({
+    email: "",
+    password: ""
+  })
+  const [accessToken, setAccessToken] = useState(Cookies.get("accessToken"))
+  const [refreshToken, setRefreshToken] = useState(Cookies.get("refreshToken"))
+  const formRef = useRef(null)
+
+  const getUserLoginData = (e) => {
+    setUsers({ ...users, [e.target.name]: e.target.value })
+  }
+
+  async function loginHandle() {
+    const response = await axios.post("http://localhost:8000/api/v1/users/login", users)
+    const result = await response?.data
+    try {
+      const {accessToken, refreshToken} = await result?.data;
+      console.log("accessToken", accessToken)
+      console.log("refreshTokenToken", refreshToken)
+      setAccessToken(accessToken)
+      setRefreshToken(refreshToken)
+      Cookies.set("accessToken", accessToken, {expires: 1})
+      Cookies.set("refreshToken", refreshToken, {expires: 7})
+
+    } catch (error) {
+      console.error("Login error: ", error)
+    }
+    // const accessToken = await result?.data?.accessToken
+    // const refreshToken = await result?.data?.refreshToken
+    // console.log("accessToken",accessToken)
+    // console.log("refreshToken",refreshToken)
+    // if (response?.data?.statusCode === 200 && response?.data?.success === true) {
+    //   successToast(response?.data?.message)
+    // }
+  }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    loginHandle()
+    formRef.current.reset()
+  }
   return (
     <>
       <section id="login">
@@ -34,8 +77,8 @@ const Login = () => {
               {/* card body */}
               <div className="card-body user-register-card-body">
                 <form
-                  action="/"
-                  method="POST"
+                  ref={formRef}
+                  onSubmit={handleSubmit}
                   className="user-register-form d-flex flex-column gap-3 mt-2"
                 >
                   {/* username or email */}
@@ -44,8 +87,9 @@ const Login = () => {
                     <input
                       type="text"
                       placeholder="Username or Email"
-                      //   name="email"
-                      //   value="email"
+                      name="email"
+                      onChange={getUserLoginData}
+                    //   value="email"
                     />
                   </div>
                   {/* username or email */}
@@ -55,25 +99,27 @@ const Login = () => {
                       type="password"
                       placeholder="Password"
                       autoComplete="off"
-                      //   name="password"
-                      //   value="password"
+                      name="password"
+                      onChange={getUserLoginData}
+
+                    //   value="password"
                     />
+                  </div>
+                  {/* card footer */}
+                  <div className="card-footer  my-5 d-flex flex-column text-center justify-content-center align-items-center">
+                    <NavLink to={`/`} className="text-muted">
+                      Forgot your password?
+                    </NavLink>
+                    <br />
+                    <button type="submit"
+                      className="btn  login-btn"
+                    >
+                      SIGN IN
+                    </button>
                   </div>
                 </form>
               </div>
-              {/* card footer */}
-              <div className="card-footer  my-5 d-flex flex-column text-center justify-content-center align-items-center">
-                <NavLink to={`/`} className="text-muted">
-                  Forgot your password?
-                </NavLink>
-                <br />
-                <a
-                  href="/user/login"
-                  className="text-decoration-none login-btn"
-                >
-                  SIGN IN
-                </a>
-              </div>
+
             </div>
             {/* second-part */}
             <div className="col-md-4 login-part-two">

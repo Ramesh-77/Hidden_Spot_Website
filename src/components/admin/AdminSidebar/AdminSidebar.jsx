@@ -22,7 +22,7 @@ const AdminSidebar = () => {
               <li className="list-unstyled d-flex flex-row align-items-center gap-3">
                 <i className="fa-solid fa-user"></i>
                 <NavLink
-                  to={`/admin/dashboard`}
+                  to={`/admin/registered-users`}
                   className="text-decoration-none"
                 >
                   <span>Registered Users</span>

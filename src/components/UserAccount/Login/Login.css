@@ -1,4 +1,4 @@
-#login{
+#login {
   margin-top: 10rem;
 }
 .login-part-one {
@@ -65,7 +65,7 @@ input[type="password"] {
 }
 .login-part-two {
   background: #f3bc19;
-  padding: 155px 0;
+  padding: 165px 0;
 }
 .register-btn {
   background: transparent;
@@ -74,6 +74,6 @@ input[type="password"] {
   color: #fff;
   border-radius: 30px;
 }
-::placeholder{
+::placeholder {
   color: #ababab;
 }

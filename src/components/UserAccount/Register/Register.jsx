@@ -28,10 +28,7 @@ const Register = () => {
 
   const handleUserRegisterForm = (e) => {
     e.preventDefault(); //not reload the form
-    if (!fullName || !email || !password || !phone) {
-      errorToast("All fields are required")
-      return;
-    }
+    
     dispatch(registerUser(users))
 
     successToast('Account Verification code is sent to your email....')
