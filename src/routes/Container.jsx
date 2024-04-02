@@ -14,6 +14,10 @@ import GetValidUserData from "../components/UserAccount/GetValidUserData/GetVali
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 import ViewRegisterUser from "../components/admin/RegisteredUser/ViewRegisterUser";
+import AddMenu from "../components/admin/Menu/AddMenu";
+import ViewMenu from "../components/admin/Menu/ViewMenu";
+import UpdateMenu from "../components/admin/Menu/UpdateMenu";
+import ViewItem from "../components/admin/Items/ViewItem";
 const Container = () => {
   let token = Cookies.get("accessToken")
   let decodeToken;
@@ -54,6 +58,10 @@ const Container = () => {
           <Route exact path="admin">
           <Route path="dashboard" element={<AdminDashboard  />} />
           <Route path="registered-users" element={<ViewRegisterUser />} />
+          <Route path="add-menu" element={<AddMenu userId = {decodeToken?._id} />} />
+          <Route path="view-menu" element={<ViewMenu  />} />
+          <Route path="update-menu/:id" element={<UpdateMenu userId = {decodeToken?._id} />} />
+          <Route path="view-item" element={<ViewItem  />} />
         </Route>
 
          )}

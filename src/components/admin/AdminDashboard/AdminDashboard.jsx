@@ -7,16 +7,21 @@ import Menu from "../Menu/Menu";
 import Order from "../Orders/Order";
 import { useDispatch, useSelector } from "react-redux";
 import { getRegisteredUserData } from "../../../features/slices/GetRegisterUser/getRegisterUserSlice";
+import { getMenu } from "../../../features/slices/Menu/menuSlice";
 const AdminDashboard = () => {
 
   const registeredUser = useSelector(state => {
     return state?.registeredUsers?.registeredUser?.data
+  })
+  const getMenuLength = useSelector(state => {
+    return state?.menu?.menu?.data
   })
 
   // console.log(registeredUser?.length)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getRegisteredUserData(registeredUser))
+    dispatch(getMenu(getMenuLength))
   }, [])
 
 
@@ -39,7 +44,7 @@ const AdminDashboard = () => {
                     <RegisterUser registeredUser={registeredUser?.length}/>
                   </div>
                   <div className="col-md-3 pt-4">
-                    <Menu />
+                    <Menu getMenuLength={getMenuLength?.length}/>
                   </div>
                   <div className="col-md-3 pt-4">
                     <Item />

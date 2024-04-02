@@ -32,17 +32,17 @@ const AdminSidebar = () => {
               <li className="list-unstyled d-flex flex-row align-items-center gap-3">
                 <i className="fa-solid fa-list"></i>
                 <NavLink
-                  to={`/admin/dashboard`}
+                  to={`/admin/view-menu`}
                   className="text-decoration-none"
                 >
-                  <span>Category</span>
+                  <span>Menu</span>
                 </NavLink>
               </li>
               {/* items */}
               <li className="list-unstyled d-flex flex-row align-items-center gap-3">
                 <i className="fa-solid fa-bowl-food"></i>
                 <NavLink
-                  to={`/admin/dashboard`}
+                  to={`/admin/view-item`}
                   className="text-decoration-none"
                 >
                   <span>Items</span>
@@ -52,7 +52,7 @@ const AdminSidebar = () => {
               <li className="list-unstyled d-flex flex-row align-items-center gap-3">
                 <i className="fa-solid fa-arrow-down-up-across-line"></i>
                 <NavLink
-                  to={`/admin/dashboard`}
+                  to={`/admin/orders`}
                   className="text-decoration-none"
                 >
                   <span>Orders</span>

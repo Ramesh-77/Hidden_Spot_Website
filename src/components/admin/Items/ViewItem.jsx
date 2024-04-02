@@ -9,7 +9,7 @@ import axios from "axios";
 
 
 
-const ViewRegisterUser = () => {
+const ViewItem = () => {
 
     const [filterUserData, setFilterUserData] = useState('')
 
@@ -59,7 +59,7 @@ const ViewRegisterUser = () => {
                                     <div className="col-md-12 pt-4">
                                         {data?.length > 0 ? (<>
                                             <div className="customer-heading">
-                                                <h3 className="fw-bold">Registered Users</h3>
+                                                <h3 className="fw-bold">View All Items</h3>
                                             </div>
                                             <div>
                                                 <input type="text" className="ps-3 w-50 d-block ms-auto" placeholder="search users..."
@@ -117,4 +117,4 @@ const ViewRegisterUser = () => {
         </>
     )
 }
-export default ViewRegisterUser
+export default ViewItem

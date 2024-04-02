@@ -1,6 +1,8 @@
 import React from "react";
 import "./Menu.css"
-const Menu = () => {
+const Menu = ({getMenuLength}) => {
+
+    
 
     return (
 
@@ -17,7 +19,7 @@ const Menu = () => {
 
                     <div className="registered-user-number ms-5 text-end">
                         <span>Total Menu</span> <br />
-                        <span className="fw-bold fs-3">8</span>
+                        <span className="fw-bold fs-3">{getMenuLength}</span>
                     </div>
 
                 </div>
