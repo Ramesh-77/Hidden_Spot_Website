@@ -3,6 +3,7 @@ import AdminSidebar from "../AdminSidebar/AdminSidebar";
 import AdminHeader from "../AdminNavbar/AdminHeader";
 import { useDispatch } from "react-redux";
 import { addMenu } from "../../../features/slices/Menu/menuSlice";
+import "./Menu.css"
 const AddMenu = ({ userId }) => {
 
     const [menu, setMenu] = useState({
@@ -44,7 +45,7 @@ const AddMenu = ({ userId }) => {
                                         <form ref={formRef} onSubmit={handleSubmit}>
                                             <div className="mb-3">
                                                 <label className="form-label fw-bold">Enter Menu</label>
-                                                <input type="text" className="form-control" id="menuName" name="menuName" onChange={handleChange} />
+                                                <input type="text" className="form-control p-0" id="menuName" name="menuName" placeholder="Enter menu name..." onChange={handleChange} />
                                             </div>
                                             <button type="submit" className="btn btn-primary">Submit</button>
                                         </form>

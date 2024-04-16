@@ -4,7 +4,8 @@ import "./Register.css";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../../features/slices/UserRegister/userRegisterSlice";
 import { successToast } from "../../../utils/Toast/successToast";
-import { errorToast } from "../../../utils/Toast/errorToast";
+import Navbar from "../../header/Navbar";
+
 
 const Register = () => {
   // getting user input value
@@ -43,6 +44,7 @@ const Register = () => {
 
   return (
     <>
+    <Navbar />
       <section id="register">
         <div className="container my-5">
           <div className="row justify-content-center align-items-center">

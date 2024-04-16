@@ -8,6 +8,7 @@ import Order from "../Orders/Order";
 import { useDispatch, useSelector } from "react-redux";
 import { getRegisteredUserData } from "../../../features/slices/GetRegisterUser/getRegisterUserSlice";
 import { getMenu } from "../../../features/slices/Menu/menuSlice";
+import { getItem } from "../../../features/slices/Item/itemSlice";
 const AdminDashboard = () => {
 
   const registeredUser = useSelector(state => {
@@ -17,11 +18,14 @@ const AdminDashboard = () => {
     return state?.menu?.menu?.data
   })
 
+  const getItemLength = useSelector(state => state.item?.item?.data)
+
   // console.log(registeredUser?.length)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getRegisteredUserData(registeredUser))
     dispatch(getMenu(getMenuLength))
+    dispatch(getItem(getItemLength))
   }, [])
 
 
@@ -41,13 +45,13 @@ const AdminDashboard = () => {
 
                 <div className="row">
                   <div className="col-md-3 pt-4">
-                    <RegisterUser registeredUser={registeredUser?.length}/>
+                    <RegisterUser registeredUser={registeredUser?.length} />
                   </div>
                   <div className="col-md-3 pt-4">
-                    <Menu getMenuLength={getMenuLength?.length}/>
+                    <Menu getMenuLength={getMenuLength?.length} />
                   </div>
                   <div className="col-md-3 pt-4">
-                    <Item />
+                    <Item getItemLength={getItemLength?.length} />
                   </div>
                   <div className="col-md-3 pt-4">
                     <Order />

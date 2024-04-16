@@ -62,11 +62,11 @@
 }
 input[type="text"],
 input[type="password"] {
-  width: 60%;
-  padding: 7px 7px 7px 40px;
-  border-radius: 3px;
-  border: transparent;
-  background: #eaeaea;
+  width: 60% !important;
+  padding: 7px 7px 7px 40px !important;
+  border-radius: 3px !important;
+  border: transparent !important;
+  background: #eaeaea !important;
 }
 .card-footer .login-btn {
   background: #f3bc19;

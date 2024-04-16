@@ -1,6 +1,6 @@
 import React from "react";
 import "./Item.css"
-const Item = () => {
+const Item = ({getItemLength}) => {
 
     return (
 
@@ -17,7 +17,7 @@ const Item = () => {
 
                     <div className="registered-user-number ms-5 text-end">
                         <span>Total Items</span> <br />
-                        <span className="fw-bold fs-3">12</span>
+                        <span className="fw-bold fs-3">{getItemLength}</span>
                     </div>
 
                 </div>

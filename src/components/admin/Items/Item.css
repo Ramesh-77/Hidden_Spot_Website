@@ -9,15 +9,27 @@
     justify-content: space-around;
     position: relative;
   }
-  .icon-box {
-    height: 60px;
-    width: 60px;
-    background: #f6f4f4;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: -30px;
-    left: 20px;
+  
+ 
+  input[type="text"], input[type="number"]{
+    width: 50% !important;
+    background: #f5f1f1 !important;
+    padding: 10px 10px !important;
+  }
+  .itemDesc{
+    width: 50% !important;
+    background: #f5f1f1 !important;
+    resize: none !important;
+
+  }
+  #menu{
+    width: 50% !important;
+    padding: 10px 5px !important;
   }
   
+ 
+  
+  /* add item css */
+  .add-item, .update-item{
+    margin-bottom: 10rem;
+  }

@@ -1,9 +1,9 @@
 import React, { useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "axios";
-// import { successToast } from "../../../utils/Toast/successToast";
 import Cookies from "js-cookie";
+import Navbar from "../../header/Navbar"
 const Login = () => {
   const [users, setUsers] = useState({
     email: "",
@@ -13,6 +13,8 @@ const Login = () => {
   const [refreshToken, setRefreshToken] = useState(Cookies.get("refreshToken"))
   const formRef = useRef(null)
 
+  const navigate = useNavigate()
+
   const getUserLoginData = (e) => {
     setUsers({ ...users, [e.target.name]: e.target.value })
   }
@@ -21,32 +23,33 @@ const Login = () => {
     const response = await axios.post("http://localhost:8000/api/v1/users/login", users)
     const result = await response?.data
     try {
-      const {accessToken, refreshToken} = await result?.data;
-      console.log("accessToken", accessToken)
-      console.log("refreshTokenToken", refreshToken)
+      const { accessToken, refreshToken } = await result?.data;
       setAccessToken(accessToken)
       setRefreshToken(refreshToken)
-      Cookies.set("accessToken", accessToken, {expires: 1})
-      Cookies.set("refreshToken", refreshToken, {expires: 7})
-
+      Cookies.set("accessToken", accessToken, { expires: 1 })
+      Cookies.set("refreshToken", refreshToken, { expires: 7 })
     } catch (error) {
       console.error("Login error: ", error)
     }
-    // const accessToken = await result?.data?.accessToken
-    // const refreshToken = await result?.data?.refreshToken
-    // console.log("accessToken",accessToken)
-    // console.log("refreshToken",refreshToken)
-    // if (response?.data?.statusCode === 200 && response?.data?.success === true) {
-    //   successToast(response?.data?.message)
-    // }
+
   }
   const handleSubmit = (e) => {
     e.preventDefault()
     loginHandle()
-    formRef.current.reset()
+    setTimeout(() => {
+      
+      formRef.current.reset()
+    }, 2000);
+ 
+
+    navigate('/admin/dashboard')
+  
+
+
   }
   return (
     <>
+      <Navbar />
       <section id="login">
         <div className="container my-5">
           <div className="row justify-content-center align-items-center">

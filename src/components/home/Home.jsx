@@ -5,6 +5,7 @@ import Service from "./Service";
 import HiddenSpotStory from "./HiddenSpotStory";
 import HiddenSpotFunction from "./HiddenSpotFunction";
 import SideFooterBanner from "../footer/SideFooterBanner";
+import Navbar from "../header/Navbar";
 const Home = () => {
   const cafeContext =
     "We are always ready to serve you the mouthwatering foods, snacks and coffee and tea, providing pleasant soothing ambiance to enjoy with your beloved ones and family.";
@@ -16,6 +17,7 @@ const Home = () => {
  
   return (
     <>
+    <Navbar/>
       {/* for home */}
       <section id="home">
         {/* carousel banner */}
