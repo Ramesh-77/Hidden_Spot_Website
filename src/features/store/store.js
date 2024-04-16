@@ -3,6 +3,7 @@ import userRegisterSlice from "../slices/UserRegister/userRegisterSlice.js";
 import getRegisterUserSlice from "../slices/GetRegisterUser/getRegisterUserSlice.js";
 import menuSlice from "../slices/Menu/menuSlice.js";
 import itemSlice from "../slices/Item/itemSlice.js";
+import serviceSlice from "../slices/Service/serviceSlice.js";
 
 // create central store
 export const store = configureStore({
@@ -11,6 +12,7 @@ export const store = configureStore({
         registeredUsers: getRegisterUserSlice,
         menu: menuSlice,
         item: itemSlice,
+        service: serviceSlice,
        
     }
 })

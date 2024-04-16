@@ -20,6 +20,9 @@ import UpdateMenu from "../components/admin/Menu/UpdateMenu";
 import ViewItem from "../components/admin/Items/ViewItem";
 import AddItem from "../components/admin/Items/AddItem";
 import UpdateItem from "../components/admin/Items/UpdateItem";
+import AddService from "../components/admin/services/AddService";
+import ViewService from "../components/admin/services/ViewService";
+import UpdateService from "../components/admin/services/UpdateService";
 const Container = () => {
   let token = Cookies.get("accessToken")
   let decodeToken;
@@ -66,6 +69,11 @@ const Container = () => {
           <Route path="view-item" element={<ViewItem  />} />
           <Route path="add-item" element={<AddItem userId={decodeToken?._id} />} />
           <Route path="update-item/:id" element={<UpdateItem userId={decodeToken?._id} />} />
+          <Route path="add-service" element={<AddService userId = {decodeToken?._id} />} />
+          <Route path="view-service" element={<ViewService />} />
+          <Route path="update-service/:id" element={<UpdateService userId = {decodeToken?._id} />} />
+
+          
         </Route>
 
          )}

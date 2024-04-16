@@ -32,6 +32,16 @@ const AdminSidebar = () => {
               <li className="list-unstyled d-flex flex-row align-items-center gap-3">
                 <i className="fa-solid fa-list"></i>
                 <NavLink
+                  to={`/admin/view-service`}
+                  className="text-decoration-none"
+                >
+                  <span>Service</span>
+                </NavLink>
+              </li>
+              {/* product category */}
+              <li className="list-unstyled d-flex flex-row align-items-center gap-3">
+                <i className="fa-solid fa-list"></i>
+                <NavLink
                   to={`/admin/view-menu`}
                   className="text-decoration-none"
                 >

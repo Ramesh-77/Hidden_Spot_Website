@@ -72,7 +72,7 @@ const UpdateItem = ({ userId }) => {
                     setTimeout(() => {
                         formRef.current.reset()
                     }, 3000);
-                     successToast(
+                    successToast(
                         'Item has been updated successfully'
                     )
                 }
